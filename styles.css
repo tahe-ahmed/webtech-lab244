@@ -300,8 +300,16 @@ th:nth-child(4n + 1) {
 }
 .thefront img {
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.theback img {
+  width: 40%;
+  height: 60%;
 }
 .theback {
+  display: flex;
+  justify-content: center;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -312,6 +320,9 @@ th:nth-child(4n + 1) {
   border-radius: 20px;
   padding: 40% 10%;
   background: rgb(255, 255, 255);
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .theback h2,
 .theback p {
@@ -319,6 +330,9 @@ th:nth-child(4n + 1) {
   color: #2a2929;
   text-align: center;
   margin-bottom: 10px;
+}
+.theback figcaption {
+  background-color: white;
 }
 
 /* anime charactar styles-------------------------------------------------------- */

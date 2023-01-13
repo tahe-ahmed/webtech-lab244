@@ -37,11 +37,12 @@
     <!-- introduction section -->
     <section>
       <div class="introduction">
+        <h1>introudction for our website .....</h1>
         <div class="introduction-block">
           <p>
-            Lorem ipsum dolor sit amet,<abbr> consectetur adipiscing elit.</abbr></span> Sumenda potius
+            Lorem ipsum dolor sit amet,<abbr> consectetur adipiscing elit.</abbr>Sumenda potius
             quam expetenda. Illa
-            argumenta propria videamus, cur omnia sint paria peccata. Audio equidem philosophi vocem,
+            argumenta propria videamus, <span>cur omnia sint paria peccata.</span> Audio equidem philosophi vocem,
             Epicure, sed quid tibi dicendum sit oblitus es. Sed quid minus probandum quam esse aliquem
             beatum nec satis beatum? An eum <strong>discere ea mavis, quae cum plane perdidiceriti nihil
               sciat?</strong>
@@ -80,6 +81,7 @@
     <div class="clr"></div>
 
     <section id="mytable">
+      <h1>This is Some Anime famous ....</h1>
       <form action="https://wt.ops.labs.vu.nl/api23/598dea43" method="post" id="form"></form>
 
       <table>
@@ -143,25 +145,22 @@
 
           <tr>
             <td>
-              <input id="img-upload" type="file" id="myFile" name="image" form="form" required>
+              <input id="img-upload" type="file" name="image" form="form" required>
             </td>
             <td>
-              <!-- <textarea class="textarea-input" type="text" name="name" form="form" rows="1" cols="1" placeholder="name"
-                required></textarea> -->
               <input class="text-input" type="text" placeholder="name" name="author" form="form" required>
             </td>
-            <td><textarea class="textarea-input" type="text" name="alt" form="form" rows="2" cols="2" placeholder="Alt"
+            <td><textarea class="textarea-input" name="alt" form="form" rows="2" cols="2" placeholder="Alt"
                 required></textarea>
 
             </td>
             <td>
-              <textarea class="textarea-input" type="text" name="tags" form="form" rows="2" cols="2" placeholder="Tags"
+              <textarea class="textarea-input" name="tags" form="form" rows="2" cols="2" placeholder="Tags"
                 required></textarea>
             </td>
             <td>
-              <textarea class="textarea-input" type="text" name="description" form="form" rows="6" cols="5"
+              <textarea class="textarea-input" name="description" form="form" rows="6" cols="5"
                 placeholder="description" required></textarea>
-              <!-- <input id="textarea-input" type="text" name="description" form="form"> -->
             </td>
           </tr>
         </tbody>
@@ -181,14 +180,19 @@
       <div class="MyFlex">
         <div class="Charc-container">
           <div class="Charc-card">
-            <figure class="thefront">
+            <div class="thefront">
               <img src="https://i.pinimg.com/736x/5a/78/01/5a7801cc489349203e554aec5af3900e.jpg
-                            " width="100%" height="100%" alt="Anime-charc">
+                            " alt="Anime-charc">
+            </div>
+            <figure class="theback">
+              <img src="https://i.pinimg.com/736x/5a/78/01/5a7801cc489349203e554aec5af3900e.jpg
+                            " alt="Anime-charc">
+              <figcaption class="">
+                <h2> Tahe Alhamady</h2>
+                <p>For more info ...</p>
+              </figcaption>
             </figure>
-            <figcaption class="theback">
-              <h2> Tahe Alhamady</h2>
-              <p>Very Talented</p>
-            </figcaption>
+
           </div>
         </div>
       </div>
@@ -233,18 +237,18 @@
         </p>
       </div>
 
-      <form class="contact-form">
+      <form action="#" class="contact-form" method="post">
         <h2>Ask us a Question:</h2>
         <div class="form-item">
-          <input type="text" name="name" placeholder="Name" autofocus>
+          <input name="name" placeholder="Name" autofocus>
         </div>
         <div class="form-item">
-          <input type="text" name="email" placeholder="Email">
+          <input name="email" placeholder="Email">
         </div>
         <div class="form-item">
-          <textarea type="text" name="Question" placeholder="Question"></textarea>
+          <textarea name="Question" placeholder="Question"></textarea>
         </div>
-        <input href="#" class="button" type="submit" value="Submit" name="Question">
+        <input class="button" type="submit" value="Submit" name="Question">
       </form>
     </section>
 
