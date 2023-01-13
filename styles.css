@@ -218,7 +218,7 @@ th:nth-child(4n + 1) {
 }
 
 .table-caption {
-  caption-side: bottom;
+  caption-side: top;
   background-color: transparent;
   margin: 20px;
   color: rgb(255, 255, 255);
