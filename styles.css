@@ -7,6 +7,8 @@
   background-color: black;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  orphans: inherit;
+  widows: unset;
 }
 h1 {
   font-size: 37px;
@@ -38,13 +40,13 @@ p {
 }
 button,
 .button {
-  background-color: #37a000;
+  background-color: #f8f8f8;
   padding: 11px 28px;
   border: none;
   cursor: pointer;
   border-radius: 10px;
   margin: 8px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   width: auto;
   height: auto;
   line-height: 15px;
@@ -54,6 +56,10 @@ button,
 button:hover,
 .button:hover {
   background-color: rgba(19, 155, 1, 0.8);
+}
+button:active,
+.button:active {
+  background-color: rgba(255, 0, 0, 0.8);
 }
 .clr {
   clear: both;
@@ -114,24 +120,18 @@ nav {
   font-weight: 400;
 }
 .nav-lists li {
-  list-style: none;
+  list-style-type: disclosure-open;
+  list-style-position: inherit;
 }
 .nav-lists a:hover {
   color: #37a000;
 }
-.burger div {
-  height: 5px;
-  width: 20px;
-  background-color: black;
-  margin: 5px;
+a:link {
+  color: #f853cc;
 }
-.burger {
-  position: fixed;
-  right: 7%;
-  background-color: white;
-  border-radius: 3px;
-  display: none;
-  cursor: pointer;
+
+a:visited {
+  color: #00fb60;
 }
 
 /* header style --------------------------------------------------------- */
@@ -143,31 +143,42 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
 }
-.why-text-block {
-  text-align: left;
-  padding: 0px 20px;
+
+.introduction {
+  background: transparent no-repeat center 80%
+    url('https://m.media-amazon.com/images/M/MV5BZTU2NDk1YjMtNzFmMS00YmVjLTg0NGQtMDVlOTdiZDdmNGIyXkEyXkFqcGdeQWRpZWdtb25n._V1_.jpg');
+}
+
+.introduction-block {
+  text-align: center;
+  padding: 105px 20px;
   width: 600px;
   height: auto;
+  background-color: transparent;
 }
-.why-text-block ul {
+.introduction-block ul,
+.introduction-block ol {
   padding: 0px 30px;
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
   font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
 }
-
 dt {
   font-weight: bold;
+  background-color: transparent;
 }
 
 dl,
 dd {
   font-size: 0.9rem;
+  background-color: transparent;
 }
 
 dd {
   margin-bottom: 1em;
+  background-color: transparent;
 }
 
 /* introduction style----------------------------------------------------- */
@@ -183,9 +194,13 @@ table {
 
 th,
 td {
-  border: 1px solid white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+  border-spacing: 2px;
   border-radius: 10%;
   padding: 0.5rem;
+  vertical-align: top;
 }
 th {
   padding: 0.6rem;
@@ -202,6 +217,7 @@ th:nth-child(4n + 1) {
 }
 
 .table-caption {
+  caption-side: bottom;
   background-color: transparent;
   margin: 20px;
   color: rgb(255, 255, 255);
@@ -230,6 +246,11 @@ th:nth-child(4n + 1) {
   border-radius: 12%;
   width: 100%;
   background: white;
+}
+
+#textarea-input:focus {
+  background-color: rgb(16, 27, 31);
+  color: whitesmoke;
 }
 
 #textarea-input {
@@ -440,7 +461,33 @@ footer {
     width: 60%;
   }
 }
-@media (max-width: 760px) {
+
+/* ipad, Tablets --------------------------- */
+@media screen and (max-width: 750px) {
+  header {
+    width: 110%;
+  }
+  #mytable {
+    width: 120%;
+  }
+  .introduction {
+    width: 110%;
+  }
+  .introduction-block {
+    width: 100%;
+  }
+  .float-right {
+    width: 100%;
+  }
+  .video-wraper > span {
+    padding: 10px;
+  }
+  footer {
+    width: 110%;
+  }
+}
+
+@media screen and (max-width: 450px) {
   .nav-lists {
     position: fixed;
     background-color: black;
@@ -456,13 +503,60 @@ footer {
     transition: transform 0.4s ease-in;
     padding-bottom: 50px;
   }
-  .burger {
-    display: block;
+  #mytable {
+    width: 140%;
+  }
+  .introduction {
+    width: 130%;
+  }
+  .introduction-block {
+    width: 100%;
   }
   .float-right {
     width: 100%;
   }
-  .video-wraper > span {
-    padding: 10px;
+
+  footer {
+    width: 130%;
+  }
+}
+
+/* override styles when printing */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    padding: 1rem;
+  }
+  #Anime-Charc {
+    display: none;
+  }
+  .contact-form {
+    display: none;
+  }
+  .nav-lists {
+    display: none;
+  }
+  .button {
+    display: none;
+  }
+  form {
+    display: none;
+  }
+  #mytable {
+    width: 100%;
+    margin: 0;
+  }
+  td:nth-child(4n + 1) {
+    width: 20%;
+  }
+  th:nth-child(4n + 1) {
+    width: 20%;
+  }
+  tr:nth-child(5) {
+    display: none;
+  }
+  input,
+  textarea {
+    display: none;
   }
 }
