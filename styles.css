@@ -214,7 +214,6 @@ th:nth-child(4n + 1) {
 .image-item {
   width: -moz-available; /* WebKit-based browsers will ignore this. */
   width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
-  width: fill-available;
   border-radius: inherit;
 }
 
