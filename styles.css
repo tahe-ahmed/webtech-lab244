@@ -24,6 +24,7 @@ h1 {
 h2 {
   font-family: 'open Sans', sans-serif;
   font-weight: 700;
+  background-color: transparent;
   font-style: italic;
 }
 dd,
@@ -144,21 +145,25 @@ a:visited {
   justify-content: center;
 }
 
-.introduction {
+/* .introduction {
   background: transparent no-repeat center 80%
     url('https://m.media-amazon.com/images/M/MV5BZTU2NDk1YjMtNzFmMS00YmVjLTg0NGQtMDVlOTdiZDdmNGIyXkEyXkFqcGdeQWRpZWdtb25n._V1_.jpg');
-}
-
-.introduction-block {
+} */
+.introduction-text {
   text-align: center;
-  padding: 105px 20px;
-  width: 600px;
+  padding: 20px 20px;
   height: auto;
   background-color: transparent;
 }
-.introduction-block ul,
-.introduction-block ol {
-  padding: 0px 30px;
+.introduction-block {
+  background: transparent no-repeat center 80%
+    url('https://m.media-amazon.com/images/M/MV5BZTU2NDk1YjMtNzFmMS00YmVjLTg0NGQtMDVlOTdiZDdmNGIyXkEyXkFqcGdeQWRpZWdtb25n._V1_.jpg');
+  padding-top: 100px;
+  background-color: transparent;
+}
+.introduction-text ul,
+.introduction-text ol {
+  padding: 0px 5%;
   font-size: 20px;
   font-weight: 400;
   font-style: italic;
@@ -234,7 +239,7 @@ th:nth-child(4n + 1) {
   border-spacing: 0;
   /* width: 100%; */
   /* width: 700px; */
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
   margin-left: 5%;
   margin-right: 5%;
