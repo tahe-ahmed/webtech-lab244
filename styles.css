@@ -542,6 +542,7 @@ footer {
 @media print {
   body {
     -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact;
     padding: 1rem;
   }
   #Anime-Charc {
@@ -562,6 +563,10 @@ footer {
   #mytable {
     width: 100%;
     margin: 0;
+  }
+  th,
+  td {
+    border-radius: 0;
   }
   td:nth-child(4n + 1) {
     width: 20%;
