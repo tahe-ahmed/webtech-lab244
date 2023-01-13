@@ -200,7 +200,7 @@ td {
   border-spacing: 2px;
   border-radius: 10%;
   padding: 0.5rem;
-  vertical-align: top;
+  vertical-align: middle;
 }
 th {
   padding: 0.6rem;
@@ -212,7 +212,9 @@ th:nth-child(4n + 1) {
   width: 30%;
 }
 .image-item {
-  width: -webkit-fill-available;
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
   border-radius: inherit;
 }
 
@@ -242,18 +244,20 @@ th:nth-child(4n + 1) {
   width: 70%;
 }
 
-#text-input {
+.text-input {
   border-radius: 12%;
   width: 100%;
+  color: #020202;
   background: white;
 }
 
-#textarea-input:focus {
+.textarea-input:focus,
+.text-input:focus {
   background-color: rgb(16, 27, 31);
   color: whitesmoke;
 }
 
-#textarea-input {
+.textarea-input {
   border-radius: 12%;
   width: 100%;
 }

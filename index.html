@@ -86,7 +86,7 @@
         <caption class="table-caption">Brief information about some of noble winners</caption>
         <thead>
           <tr>
-            <th class="table-image">image</th>
+            <th>image</th>
             <th>author</th>
             <th>alt</th>
             <th>tag</th>
@@ -95,7 +95,7 @@
         </thead>
         <tbody>
           <tr>
-            <td class="table-image">
+            <td>
               <img
                 src="https://pyxis.nymag.com/v1/imgs/df1/bdf/5c012eec9eef195ccdc36e79fc1da9e344-anime-lede.rsquare.w700.jpg"
                 alt="Richard-image" class="image-item">
@@ -111,7 +111,7 @@
             </td>
           </tr>
           <tr>
-            <td class="table-image">
+            <td>
               <img
                 src="https://i.pinimg.com/236x/97/3b/10/973b10f9692739f5f41a543306c3f704--monkey-pictures-monkey-d-luffy.jpg"
                 alt="Richard-image" class="image-item">
@@ -127,7 +127,7 @@
             </td>
           </tr>
           <tr>
-            <td class="table-image">
+            <td>
               <img src="https://i.stack.imgur.com/lj5Pk.jpg" alt="Richard-image" class="image-item">
             </td>
             <td>Richard Feynman</td>
@@ -142,22 +142,24 @@
           </tr>
 
           <tr>
-            <td class="table-image">
+            <td>
               <input id="img-upload" type="file" id="myFile" name="image" form="form" required>
             </td>
             <td>
-              <input id="text-input" type="text" placeholder="name" name="author" form="form" required>
+              <!-- <textarea class="textarea-input" type="text" name="name" form="form" rows="1" cols="1" placeholder="name"
+                required></textarea> -->
+              <input class="text-input" type="text" placeholder="name" name="author" form="form" required>
             </td>
-            <td><textarea id="textarea-input" type="text" name="alt" form="form" rows="2" cols="2" placeholder="Alt"
+            <td><textarea class="textarea-input" type="text" name="alt" form="form" rows="2" cols="2" placeholder="Alt"
                 required></textarea>
 
             </td>
             <td>
-              <textarea id="textarea-input" type="text" name="tags" form="form" rows="2" cols="2" placeholder="Tags"
+              <textarea class="textarea-input" type="text" name="tags" form="form" rows="2" cols="2" placeholder="Tags"
                 required></textarea>
             </td>
             <td>
-              <textarea id="textarea-input" type="text" name="description" form="form" rows="6" cols="5"
+              <textarea class="textarea-input" type="text" name="description" form="form" rows="6" cols="5"
                 placeholder="description" required></textarea>
               <!-- <input id="textarea-input" type="text" name="description" form="form"> -->
             </td>
