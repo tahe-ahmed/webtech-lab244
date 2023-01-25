@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+  <script src="script.js" async></script>
+
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="icon" type="image/x-icon"
     href="https://www.seekpng.com/png/detail/15-154102_smbolo-konoha-naruto-symbols-naruto-tattoo-anime-naruto.png">
@@ -13,296 +17,123 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <a href="#"><img src="https://images-cdn.9gag.com/photo/ajNwn7x_700b.jpg" alt="logo"></a>
-      </div>
-      <ul class="nav-lists">
-        <li><a href="#mytable">Table</a></li>
-        <li><a href="#Anime-Charc">Charactars</a></li>
-        <li><a href="#F-Q">FAQs</a></li>
-      </ul>
-
-    </nav>
-  </header>
 
   <main>
+    <label class="custom-select" for="styledSelect1">
+      <select id="select-options" id="styledSelect1" name="options">
+      </select>
+    </label>
 
-    <div class="introduction-block">
-      <div class="introduction-text">
-        <p>
-          Lorem ipsum dolor sit amet,<abbr> consectetur adipiscing elit.</abbr>Sumenda potius
-          quam expetenda. Illa
-          argumenta propria videamus, <span>cur omnia sint paria peccata.</span> Audio equidem philosophi vocem,
-          Epicure, sed quid tibi dicendum sit oblitus es. Sed quid minus probandum quam esse aliquem
-          beatum nec satis beatum? An eum <strong>discere ea mavis, quae cum plane perdidiceriti nihil
-            sciat?</strong>
-          Duo Reges: constructio interrete. Itaque fecimus. Tuo vero id quidem, inquam, arbitratu.
-          Uterque enim summo bono fruitur, id est voluptate.
-        </p>
-        <dl>
-          <dt>Epicure</dt>
-          <dt>Epicure Firefox</dt>
-          <dt>Epicure</dt>
-          <dd>
-            sed quid tibi dicendum sit oblitus es. Sed quid minus probandum quam esse aliquem
-            beatum nec satis beatum? An eum discere ea mavis,
-          </dd>
-
-        </dl>
-        <ol>
-          <li>cur omnia sint paria peccata. Audio equidem philosophi vocem,
-            Epicure, sed quid tibi dicendum sit oblitus es
-          </li>
-          <li><span> cur omnia sint paria peccata. Audio equidem philosophi vocem,
-              Epicure, sed quid tibi dicendum sit oblitus es</span></li>
-          <li>cur omnia sint paria peccata. Audio equidem philosophi vocem,
-            Epicure, sed quid tibi dicendum sit oblitus es
-          </li>
-          <li><span> cur omnia sint paria peccata. Audio equidem philosophi vocem,
-              Epicure, sed quid tibi dicendum sit oblitus es</span></li>
-        </ol>
-
-
-      </div>
-      <div class="divide-line"></div>
+    <div id="container">
     </div>
 
-    <div class="clr"></div>
-    <h1>This are Some Anime famous ....</h1>
-    <div id="mytable">
-      <form action="https://wt.ops.labs.vu.nl/api23/598dea43" method="post" id="form"></form>
-      <table>
-        <caption class="table-caption">Brief information about some of Anime Celebrities</caption>
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>author</th>
-            <th>alt</th>
-            <th>tag</th>
-            <th>description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <img src="https://i.pinimg.com/736x/01/1b/d1/011bd1dbc8fa07065ca249e4be118efe.jpg" alt="Richard-image"
-                class="image-item">
-            </td>
-            <td>Richard Feynman</td>
-            <td>Image of Nobel laureate Richard Feynman</td>
-            <td>physics, nobel_prize, man</td>
-            <td>
-              Nobel laureate Richard Feynman is the author of the famous The
-              Feynman Lectures on Physics, perhaps his most accessible work for
-              anyone with an interest in physics, compiled from lectures to
-              Caltech undergraduates in 1961–64.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="https://meownovel.com/wp-content/uploads/2022/07/Swordmasters-Youngest-Son-Novel.png"
-                alt="Richard-image" class="image-item">
-            </td>
-            <td>Michelle Feynman</td>
-            <td>Image of photographer Michelle Feynman</td>
-            <td>photographer, woman</td>
-            <td>
-              Michelle Feynman is the daughter of Richard Feynman, an American
-              theoretical physicist. A graduate of Art Center College of Design,
-              Michelle is a freelance photographer and spends most of her days
-              taking pictures.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img
-                src="https://img1.wallspic.com/previews/4/7/1/4/6/164174/164174-anime_girl_with_blue_hair-hatsune_miku-anime-anime_girl-miku_hatsune-x750.jpg"
-                alt="Richard-image" class="image-item">
-            </td>
-            <td>Richard Feynman</td>
-            <td>Image of Nobel laureate Richard Feynman</td>
-            <td>physics, nobel_prize, man</td>
-            <td>
-              Nobel laureate Richard Feynman is the author of the famous The
-              Feynman Lectures on Physics, perhaps his most accessible work for
-              anyone with an interest in physics, compiled from lectures to
-              Caltech undergraduates in 1961–64.
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <input id="img-upload" type="file" name="image" form="form" required>
-            </td>
-            <td>
-              <input class="text-input" type="text" placeholder="name" name="author" form="form" required>
-            </td>
-            <td><textarea class="textarea-input" name="alt" form="form" rows="2" cols="2" placeholder="Alt"
-                required></textarea>
-
-            </td>
-            <td>
-              <textarea class="textarea-input" name="tags" form="form" rows="2" cols="2" placeholder="Tags"
-                required></textarea>
-            </td>
-            <td>
-              <textarea class="textarea-input" name="description" form="form" rows="6" cols="5"
-                placeholder="description" required></textarea>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <input type="submit" class="button" form="form">
-    </div>
-
-    <section id="Anime-Charc">
-      <h2>Our Anime Pool</h2>
-      <p> Nobel laureate Richard Feynman is the author of the famous The
-        Feynman Lectures on Physics, perhaps his most accessible work for
-        anyone with an interest in physics
-      </p>
-
-      <div class="MyFlex">
-        <div class="Charc-container">
-          <div class="Charc-card">
-            <div class="thefront">
-              <img src="https://i.pinimg.com/736x/5a/78/01/5a7801cc489349203e554aec5af3900e.jpg
-                            " alt="Anime-charc">
-            </div>
-            <figure class="theback">
-              <img src="https://i.pinimg.com/736x/5a/78/01/5a7801cc489349203e554aec5af3900e.jpg
-                            " alt="Anime-charc">
-              <figcaption class="">
-                <h2> Tahe Alhamady</h2>
-                <p>For more info ...</p>
-              </figcaption>
-            </figure>
-
+    <div id="update-modal" class="modal">
+      <p class="item-id">id</p>
+      <form name="update-form" class="modal-container" id="update-form">
+        <div class="modal-left">
+          <h1 class="modal-title">Welcome!</h1>
+          <p class="modal-desc">Fanny pack hexagon food truck, street art waistcoat kitsch.</p>
+          <div class="input-block">
+            <label for="author" class="input-label">Author</label>
+            <input type="text" name="author" id="author" required>
+          </div>
+          <div class="input-block">
+            <label for="tags" class="input-label">tags</label>
+            <input type="text" name="tags" id="tags" placeholder="tags" required>
+          </div>
+          <div class="input-block">
+            <label for="alt" class="input-label">alt</label>
+            <input type="text" name="alt" id="alt" placeholder="alt" required>
+          </div>
+          <div class="input-block">
+            <label for="description" class="input-label">description</label>
+            <input type="text" name="description" id="description" placeholder="description" required>
+          </div>
+          <div class="input-block">
+            <label for="image" class="input-label">image</label>
+            <input type="text" name="image" id="image" placeholder="image url" required>
+          </div>
+          <div class="modal-buttons">
+            <button type="submit" class="input-button">Update</button>
           </div>
         </div>
-        <div class="Charc-container">
-          <div class="Charc-card">
-            <div class="thefront">
-              <img src="https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1517007370565-WIAY17SDUXVIG5AAVX3Y/6+aokamei.jpg?format=1000w
-                            " alt="Anime-charc">
-            </div>
-            <figure class="theback">
-              <img src="https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1517007370565-WIAY17SDUXVIG5AAVX3Y/6+aokamei.jpg?format=1000w
-                            " alt="Anime-charc">
-              <figcaption class="">
-                <h2> Tahe Alhamady</h2>
-                <p>For more info ...</p>
-              </figcaption>
-            </figure>
 
-          </div>
-        </div>
-        <div class="Charc-container">
-          <div class="Charc-card">
-            <div class="thefront">
-              <img src="https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1517007239448-PH97WI436RMBX9HFIADK/5+sasucci95.jpg?format=1000w
-                            " alt="Anime-charc">
-            </div>
-            <figure class="theback">
-              <img src="https://images.squarespace-cdn.com/content/v1/596001c2579fb355caec7aac/1517007239448-PH97WI436RMBX9HFIADK/5+sasucci95.jpg?format=1000w
-                            " alt="Anime-charc">
-              <figcaption class="">
-                <h2> Tahe Alhamady</h2>
-                <p>For more info ...</p>
-              </figcaption>
-            </figure>
-
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-
-    <div class="clr"></div>
-
-    <section id="F-Q">
-      <h2> Frequent Question</h2>
-      <p>Question</p>
-      <div>
-        <p>Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Indicant pueri, in quibus ut
-          in speculis natura cernitur. Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam
-          philosophorum sit. Reguli reiciendam;<em>Eam tum adesse </em>, cum dolor omnis absit; Beatus autem esse in
-          maximarum rerum timore nemo potest.
-
-        </p>
-      </div>
-      <p>Question</p>
-      <div>
-        <p>Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Indicant pueri, in quibus ut
-          in speculis natura cernitur. Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam
-          philosophorum sit. Reguli reiciendam; Eam tum adesse, cum dolor omnis absit; Beatus autem esse in
-          maximarum rerum timore nemo potest.
-
-        </p>
-      </div>
-      <p>Question</p>
-      <div>
-        <p>Ille vero, si insipiens-quo certe, quoniam tyrannus -, numquam beatus; Indicant pueri, in quibus ut
-          in speculis natura cernitur.
-          Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam
-          philosophorum sit. Reguli reiciendam; Eam tum adesse, cum dolor omnis absit; Beatus autem esse in
-          maximarum rerum timore nemo potest.
-          List 1
-        </p>
-      </div>
-      <form action="#" class="contact-form" method="post">
-        <h2>Ask us a Question:</h2>
-        <div class="form-item">
-          <input type="text" name="name" placeholder="Name" autofocus>
-        </div>
-        <div class="form-item">
-          <input type="text" name="email" placeholder="Email">
-        </div>
-        <div class="form-item">
-          <textarea name="Question" placeholder="Question"></textarea>
-        </div>
-        <input class="button" type="submit" value="Submit" name="Question">
+        <a class="icon-button" id="update-close-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path
+              d="M 25 3 C 12.86158 3 3 12.86158 3 25 C 3 37.13842 12.86158 47 25 47 C 37.13842 47 47 37.13842 47 25 C 47 12.86158 37.13842 3 25 3 z M 25 5 C 36.05754 5 45 13.94246 45 25 C 45 36.05754 36.05754 45 25 45 C 13.94246 45 5 36.05754 5 25 C 5 13.94246 13.94246 5 25 5 z M 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.980469 15.990234 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 z">
+            </path>
+          </svg>
+        </a>
       </form>
-    </section>
+    </div>
+
+
+    <div id="post-modal" class="modal">
+      <form class="modal-container" id="post-form">
+        <div class="modal-left">
+          <h1 class="modal-title">Welcome!</h1>
+          <p class="modal-desc">Fanny pack hexagon food truck, street art waistcoat kitsch.</p>
+          <div class="input-block">
+            <label for="author" class="input-label">Author</label>
+            <input type="text" name="author" placeholder="Author" required>
+          </div>
+          <div class="input-block">
+            <label for="tags" class="input-label">tags</label>
+            <input type="text" name="tags" id="tags" placeholder="tags" required>
+          </div>
+          <div class="input-block">
+            <label for="alt" class="input-label">alt</label>
+            <input type="text" name="alt" id="alt" placeholder="alt" required>
+          </div>
+          <div class="input-block">
+            <label for="description" class="input-label">description</label>
+            <input type="text" name="description" id="description" placeholder="description" required>
+          </div>
+          <div class="input-block">
+            <label for="image" class="input-label">image</label>
+            <input type="text" name="image" id="image" placeholder="image url" required>
+          </div>
+          <!-- <div class="input-block">
+            <div class="form-group file-area">
+              <label for="images">Images <span>Your images should be at least 400x300 wide</span></label>
+              <input type="file" name="image" id="images" required="required" multiple="multiple" />
+              <div class="file-dummy">
+                <div class="success">Great, your files are selected. Keep on.</div>
+                <div class="default">Please select some files</div>
+              </div>
+            </div>
+          </div> -->
+          <div class="modal-buttons">
+            <button type="submit" class="input-button">Add</button>
+          </div>
+        </div>
+
+        <button class="icon-button close-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path
+              d="M 25 3 C 12.86158 3 3 12.86158 3 25 C 3 37.13842 12.86158 47 25 47 C 37.13842 47 47 37.13842 47 25 C 47 12.86158 37.13842 3 25 3 z M 25 5 C 36.05754 5 45 13.94246 45 25 C 45 36.05754 36.05754 45 25 45 C 13.94246 45 5 36.05754 5 25 C 5 13.94246 13.94246 5 25 5 z M 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.980469 15.990234 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 z">
+            </path>
+          </svg>
+        </button>
+      </form>
+      <div class="button-container">
+
+        <button class="modal-button">Add Image</button>
+        <button id="rest-button" class="modal-button">Reset</button>
+      </div>
+
+    </div>
+
   </main>
-
-  <!--the footer-->
-  <footer>
-    <div class="footer-social-icons">
-      <ul>
-        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
-        <li class="YouTube"><a href="#"><i class="fa fa-youtube"></i></a></li>
-      </ul>
-    </div>
-    <div class="footer-text">
-      <p>Designed by : <span> Tahe & Juan</span> as assignment 1 </p>
-      <p>Contact information: <a href="mailto:taheahmed80780@gmail.com">
-          taheahmed80780@gmail.com</a></p>
-      <p class="copyright">Copyright © <span> VU</span></p>
-    </div>
-  </footer>
-
 </body>
 
 </html>
 
-<!-- 
-Short Browser Compatiblity Report
 
-During developing, I have tested the page in two Browsers Chrome and Firefox. I have noticed some differences in the two browers.
-On printing the page as a pdf, to make the background color in Firefox black as the original web page I had to use print-color-adjuct = exact,
-while on chrome, i used webkit-print-color-adjust = exact. I also faced anther issue with the image in the table cells.
-chrome ===> -webit-fill
-Firefox ===> -moz-available
-to make the image full in the cell.
-you can check the commits where i fixed these issues here
-https://github.com/tahe-ahmed/webtech-lab244/commit/94e44dfe3073b6dcbfb68c80080ef41708b00f27
- https://github.com/tahe-ahmed/webtech-lab244/commit/a798219170a74fc7ca0114a7b0065047d5154847 
-
-
--->
+<!-- Code adapted from example provided by following resources
+  pop up modal, card styles and drop down filter 
+  https://codepen.io/knyttneve/pen/dgoWyE
+  https://codepen.io/cycosta/pen/vYLJxwq
+  https://codepen.io/sales/pen/KyXVrw
+   -->
