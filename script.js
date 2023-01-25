@@ -46,6 +46,7 @@ function openUpdateModal(itemID) {
   updateFormElement.elements['image'].value = item.image
 
   modal.classList.add('hideModal')
+  notifiModal.classList.add('hideModal')
 }
 
 // Function to close the update modal
