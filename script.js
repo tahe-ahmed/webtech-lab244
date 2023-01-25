@@ -10,7 +10,6 @@ let postForm = document.getElementById('post-form')
 let restButton = document.getElementById('rest-button')
 let updateForm = document.getElementById('update-form')
 
-let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/`
 const getURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
 const postURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
 
@@ -20,6 +19,13 @@ let isOpened = false
 function openPostModal() {
   modal.classList.add('is-open')
   body.style.overflow = 'hidden'
+
+  let updateFormElement = document.forms['post-form']
+  updateFormElement.elements['author'].value = ''
+  updateFormElement.elements['tags'].value = ''
+  updateFormElement.elements['alt'].value = ''
+  updateFormElement.elements['description'].value = ''
+  updateFormElement.elements['image'].value = ''
 }
 
 // Function to open the update modal
@@ -53,6 +59,9 @@ function openUpdateModal(itemID) {
 const closeUpdateModal = () => {
   updateModal.classList.remove('is-open')
   body.style.overflow = 'initial'
+
+  modal.classList.remove('hideModal')
+  notifiModal.classList.remove('hideModal')
 }
 
 // Function to close the post modal
@@ -243,13 +252,6 @@ function createHTMLElement(tag, attributes = {}, text = '') {
 postForm.addEventListener('submit', async (event) => {
   event.preventDefault()
 
-  let updateFormElement = document.forms['post-form']
-  updateFormElement.elements['author'].value = ''
-  updateFormElement.elements['tags'].value = ''
-  updateFormElement.elements['alt'].value = ''
-  updateFormElement.elements['description'].value = ''
-  updateFormElement.elements['image'].value = ''
-
   // Get the form data as an object
   const formData = new FormData(event.target)
   const formDataObj = Object.fromEntries(formData)
@@ -313,7 +315,8 @@ updateForm.addEventListener('submit', async (event) => {
     let formDataObj = Object.fromEntries(new FormData(event.target))
 
     // Create the update URL
-    updateURL += id
+    // updateURL += id
+    let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/${id}`
 
     // Send a PUT request to update the data
     const response = await fetch(updateURL, {
