@@ -1,5 +1,5 @@
 const body = document.querySelector('body')
-const modal = document.getElementById('post-modal')
+const postModal = document.getElementById('post-modal')
 const updateModal = document.getElementById('update-modal')
 const notifiModal = document.getElementById('success-notification')
 const closeUpdateBtn = document.getElementById('update-close-btn')
@@ -17,15 +17,10 @@ let isOpened = false
 
 // Function to open the post modal
 function openPostModal() {
-  modal.classList.add('is-open')
+  postModal.classList.add('is-open')
   body.style.overflow = 'hidden'
 
-  let updateFormElement = document.forms['post-form']
-  updateFormElement.elements['author'].value = ''
-  updateFormElement.elements['tags'].value = ''
-  updateFormElement.elements['alt'].value = ''
-  updateFormElement.elements['description'].value = ''
-  updateFormElement.elements['image'].value = ''
+  populateFormInputs('', 'post-form')
 }
 
 // Function to open the update modal
@@ -44,14 +39,10 @@ function openUpdateModal(itemID) {
   } catch (error) {
     console.error(error)
   }
-  let updateFormElement = document.forms['update-form']
-  updateFormElement.elements['author'].value = item.author
-  updateFormElement.elements['tags'].value = item.tags
-  updateFormElement.elements['alt'].value = item.alt
-  updateFormElement.elements['description'].value = item.description
-  updateFormElement.elements['image'].value = item.image
 
-  modal.classList.add('hideModal')
+  populateFormInputs(item, 'update-form')
+
+  postModal.classList.add('hideModal')
   notifiModal.classList.add('hideModal')
 }
 
@@ -60,25 +51,40 @@ const closeUpdateModal = () => {
   updateModal.classList.remove('is-open')
   body.style.overflow = 'initial'
 
-  modal.classList.remove('hideModal')
+  postModal.classList.remove('hideModal')
   notifiModal.classList.remove('hideModal')
 }
 
 // Function to close the post modal
 const closePostModal = () => {
-  modal.classList.remove('is-open')
+  postModal.classList.remove('is-open')
   body.style.overflow = 'initial'
 }
 
 // Function to open the notification modal
 const openNotifiModal = () => {
-  console.log('success')
   notifiModal.classList.add('is-open')
   body.style.overflow = 'hidden'
+
   setTimeout(function () {
     notifiModal.classList.remove('is-open')
     body.style.overflow = 'initial'
   }, 1000)
+}
+
+// Helper Function to populate the form input values
+function populateFormInputs(value, formName) {
+  let updateFormElements =
+    document.forms[formName === 'post-form' ? 'post-form' : 'update-form']
+
+  updateFormElements.elements['author'].value =
+    value === '' ? value : value.author
+  updateFormElements.elements['tags'].value = value === '' ? value : value.tags
+  updateFormElements.elements['alt'].value = value === '' ? value : value.alt
+  updateFormElements.elements['description'].value =
+    value === '' ? value : value.description
+  updateFormElements.elements['image'].value =
+    value === '' ? value : value.image
 }
 
 // Function to fetch data from the API
@@ -229,26 +235,6 @@ function createHTMLElement(tag, attributes = {}, text = '') {
   return element
 }
 
-// const sendRequest = async (method, url, formDataObj) => {
-//   try {
-//     // Create a new XMLHttpRequest object
-//     let xhr = new XMLHttpRequest()
-//     // Open a connection to the specified URL with the specified method
-//     xhr.open(method, url)
-//     // Set the request header to specify the content type as JSON
-//     xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-//     // Send the form data as a JSON string
-//     xhr.send(JSON.stringify(formDataObj))
-//     // Wait for the response and store it in a variable
-//     const data = await xhr.responseText
-//     // Return the response data
-//     return data
-//   } catch (error) {
-//     // Throw the error if something goes wrong
-//     throw error
-//   }
-// }
-
 postForm.addEventListener('submit', async (event) => {
   event.preventDefault()
 
@@ -315,7 +301,6 @@ updateForm.addEventListener('submit', async (event) => {
     let formDataObj = Object.fromEntries(new FormData(event.target))
 
     // Create the update URL
-    // updateURL += id
     let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/${id}`
 
     // Send a PUT request to update the data
@@ -333,17 +318,6 @@ updateForm.addEventListener('submit', async (event) => {
 
     getData(getURL)
 
-    // Get the item to update
-    // let itemToUpdate = document.getElementById(id)
-
-    // // Update the item's properties
-    // itemToUpdate.firstElementChild.children[1].firstElementChild.innerText =
-    //   formDataObj.author
-    // itemToUpdate.firstElementChild.children[1].children[1].innerText =
-    //   formDataObj.description
-    // itemToUpdate.firstElementChild.firstElementChild.src = formDataObj.image
-
-    // Close the update modal
     closeUpdateModal()
 
     openNotifiModal()
@@ -356,57 +330,3 @@ updateForm.addEventListener('submit', async (event) => {
 closeUpdateBtn.addEventListener('click', closeUpdateModal)
 modalButtonPost.addEventListener('click', openPostModal)
 closePostButton.addEventListener('click', closePostModal)
-
-// try {
-//   // Send a POST request to the API endpoint
-//   const response = await fetch('https://wt.ops.labs.vu.nl/api23/598dea43', {
-//     method: 'POST',
-//     body: JSON.stringify(formDataObj),
-//     headers: {
-//       'Content-type': 'application/json; charset=UTF-8',
-//     },
-//   })
-
-//   if (!response.ok) {
-//     throw new Error(response.statusText)
-//   }
-
-//   const data = await response.json()
-//   console.log(data)
-// } catch (error) {
-//   console.warn(error)
-// }
-
-// try {
-//   // Create an XMLHttpRequest object
-//   let xhr = new XMLHttpRequest()
-
-//   // Open a POST request to the specified API endpoint
-//   xhr.open('POST', 'https://wt.ops.labs.vu.nl/api23/598dea43', true)
-
-//   // Set the request headers
-//   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-
-//   // Define a function to handle the response
-//   xhr.onreadystatechange = function () {
-//     // Check if the request is complete and successful
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       // Parse the response as JSON
-//       var data = JSON.parse(xhr.responseText)
-//       console.log(data)
-//     } else if (xhr.readyState === 4 && xhr.status !== 200) {
-//       // Log an error message
-//       console.warn(xhr.statusText)
-//     }
-//   }
-
-//   // Send the request with the form data
-//   xhr.send(JSON.stringify(formDataObj))
-// } catch (error) {
-//   console.warn(error)
-// }
-
-// function renderPostedImg(formDataObj) {
-//   const imgCard = renderImgCard(formDataObj)
-//   container.appendChild(formDataObj)
-// }
