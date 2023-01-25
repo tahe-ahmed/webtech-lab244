@@ -44,6 +44,8 @@ function openUpdateModal(itemID) {
   updateFormElement.elements['alt'].value = item.alt
   updateFormElement.elements['description'].value = item.description
   updateFormElement.elements['image'].value = item.image
+
+  modal.classList.add('hideModal')
 }
 
 // Function to close the update modal
@@ -58,7 +60,7 @@ const closePostModal = () => {
   body.style.overflow = 'initial'
 }
 
-// Function to close the post modal
+// Function to open the notification modal
 const openNotifiModal = () => {
   console.log('success')
   notifiModal.classList.add('is-open')
@@ -66,7 +68,7 @@ const openNotifiModal = () => {
   setTimeout(function () {
     notifiModal.classList.remove('is-open')
     body.style.overflow = 'initial'
-  }, 1000) //5 sec
+  }, 1000)
 }
 
 // Function to fetch data from the API
@@ -239,6 +241,13 @@ function createHTMLElement(tag, attributes = {}, text = '') {
 
 postForm.addEventListener('submit', async (event) => {
   event.preventDefault()
+
+  let updateFormElement = document.forms['post-form']
+  updateFormElement.elements['author'].value = ''
+  updateFormElement.elements['tags'].value = ''
+  updateFormElement.elements['alt'].value = ''
+  updateFormElement.elements['description'].value = ''
+  updateFormElement.elements['image'].value = ''
 
   // Get the form data as an object
   const formData = new FormData(event.target)

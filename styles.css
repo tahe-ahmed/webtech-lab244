@@ -193,6 +193,10 @@ figure {
   background: #fff;
   transform: translateY(100px) scale(0.4);
 }
+#notifi {
+  background: #c6f626;
+  color: black;
+}
 
 .modal-title {
   font-size: 26px;
@@ -418,4 +422,8 @@ body {
   padding: 15px;
   border-radius: 4px;
   font-size: 18px;
+}
+
+.hideModal {
+  display: none;
 }
