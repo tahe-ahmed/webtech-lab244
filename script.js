@@ -1,6 +1,7 @@
 const body = document.querySelector('body')
 const modal = document.getElementById('post-modal')
 const updateModal = document.getElementById('update-modal')
+const notifiModal = document.getElementById('success-notification')
 const closeUpdateBtn = document.getElementById('update-close-btn')
 const modalButtonPost = document.querySelector('.modal-button')
 const closePostButton = document.querySelector('.close-button')
@@ -8,8 +9,8 @@ let container = document.getElementById('container')
 let postForm = document.getElementById('post-form')
 let restButton = document.getElementById('rest-button')
 let updateForm = document.getElementById('update-form')
-let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/`
 
+let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/`
 const getURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
 const postURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
 
@@ -55,6 +56,17 @@ const closeUpdateModal = () => {
 const closePostModal = () => {
   modal.classList.remove('is-open')
   body.style.overflow = 'initial'
+}
+
+// Function to close the post modal
+const openNotifiModal = () => {
+  console.log('success')
+  notifiModal.classList.add('is-open')
+  body.style.overflow = 'hidden'
+  setTimeout(function () {
+    notifiModal.classList.remove('is-open')
+    body.style.overflow = 'initial'
+  }, 1000) //5 sec
 }
 
 // Function to fetch data from the API
@@ -185,10 +197,6 @@ function renderImgCard(cardData) {
   return imgCard
 }
 
-// function renderPostedImg(formDataObj) {
-//   const imgCard = renderImgCard(formDataObj)
-//   container.appendChild(formDataObj)
-// }
 // Helper function to create html element and insert it to DOM
 function createHTMLElement(tag, attributes = {}, text = '') {
   const element = document.createElement(tag)
@@ -209,25 +217,25 @@ function createHTMLElement(tag, attributes = {}, text = '') {
   return element
 }
 
-const sendRequest = async (method, url, formDataObj) => {
-  try {
-    // Create a new XMLHttpRequest object
-    let xhr = new XMLHttpRequest()
-    // Open a connection to the specified URL with the specified method
-    xhr.open(method, url)
-    // Set the request header to specify the content type as JSON
-    xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-    // Send the form data as a JSON string
-    xhr.send(JSON.stringify(formDataObj))
-    // Wait for the response and store it in a variable
-    const data = await xhr.responseText
-    // Return the response data
-    return data
-  } catch (error) {
-    // Throw the error if something goes wrong
-    throw error
-  }
-}
+// const sendRequest = async (method, url, formDataObj) => {
+//   try {
+//     // Create a new XMLHttpRequest object
+//     let xhr = new XMLHttpRequest()
+//     // Open a connection to the specified URL with the specified method
+//     xhr.open(method, url)
+//     // Set the request header to specify the content type as JSON
+//     xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+//     // Send the form data as a JSON string
+//     xhr.send(JSON.stringify(formDataObj))
+//     // Wait for the response and store it in a variable
+//     const data = await xhr.responseText
+//     // Return the response data
+//     return data
+//   } catch (error) {
+//     // Throw the error if something goes wrong
+//     throw error
+//   }
+// }
 
 postForm.addEventListener('submit', async (event) => {
   event.preventDefault()
@@ -237,7 +245,20 @@ postForm.addEventListener('submit', async (event) => {
   const formDataObj = Object.fromEntries(formData)
 
   try {
-    const data = await sendRequest('POST', postURL, formDataObj)
+    // Send a POST request to the API endpoint
+    const response = await fetch('https://wt.ops.labs.vu.nl/api23/598dea43', {
+      method: 'POST',
+      body: JSON.stringify(formDataObj),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+
+    if (!response.ok) {
+      throw new Error(response.statusText)
+    }
+
+    const data = await response.json()
     console.log(data)
   } catch (error) {
     console.warn(error)
@@ -246,6 +267,7 @@ postForm.addEventListener('submit', async (event) => {
   // Render the image cards and close the post modal
   getData(getURL)
   closePostModal()
+  openNotifiModal()
 })
 
 restButton.addEventListener('click', async (event) => {
@@ -263,6 +285,7 @@ restButton.addEventListener('click', async (event) => {
     }
 
     const data = await response.json()
+    openNotifiModal()
     init(data)
   } catch (error) {
     console.warn(error)
@@ -309,6 +332,8 @@ updateForm.addEventListener('submit', async (event) => {
 
     // Close the update modal
     closeUpdateModal()
+
+    openNotifiModal()
   } catch (error) {
     console.warn(error)
   }
@@ -366,4 +391,9 @@ closePostButton.addEventListener('click', closePostModal)
 //   xhr.send(JSON.stringify(formDataObj))
 // } catch (error) {
 //   console.warn(error)
+// }
+
+// function renderPostedImg(formDataObj) {
+//   const imgCard = renderImgCard(formDataObj)
+//   container.appendChild(formDataObj)
 // }
