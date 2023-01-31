@@ -1,0 +1,204 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Author RESTFul API",
+    "description": "Author RESTFul API Documentation",
+    "license": {
+      "name": "Vrije University VU",
+      "url": "https://vu.nl/nl"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Authors",
+      "description": "API for Authors "
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/authors": {
+      "get": {
+        "tags": ["authors"],
+        "summary": "Get all authors in the system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "$ref": "#/definitions/Authors"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/author": {
+      "post": {
+        "tags": ["author"],
+        "summary": "Create new author in the system",
+        "description": "Create new author in the system",
+        "parameters": [
+          {
+            "name": "author",
+            "in": "body",
+            "description": "author that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Author"
+            },
+            "examples": {
+              "author": "Enrico Fermi",
+              "alt": "Image of Fermi",
+              "tags": "prof,manhattan,smart",
+              "image": "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRVHVIpMCnQ_mmX4bzGBeiHx3d0k4y3H5LTF7ox0hD65ADHrA2lR3Kw1ouqiFemFFG_",
+              "description": "Long description of image of Fermi."
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "type": "array",
+              "$ref": "#/definitions/Author"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/{author}": {
+      "parameters": [
+        {
+          "name": "author",
+          "in": "path",
+          "required": true,
+          "description": "Author name",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "summary": "Get author with given name",
+        "tags": ["author"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "$ref": "#/definitions/Author"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          },
+          "404": {
+            "description": "Auth with this ID Not Found"
+          }
+        }
+      }
+    },
+    "/author/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of author info that we want to find",
+          "type": "integer"
+        }
+      ],
+
+      "delete": {
+        "summary": "Delete author with given ID",
+        "tags": ["author"],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          },
+          "404": {
+            "description": "Auth with this ID Not Found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update author with give ID",
+        "tags": ["author"],
+        "parameters": [
+          {
+            "name": "author",
+            "in": "body",
+            "description": "author with new values of properties",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Author"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "author succussfully updated"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          },
+          "404": {
+            "description": "Author with this ID Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Author": {
+      "required": ["author", "tags", "alt", "description", "image"],
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        }
+      }
+    },
+    "Authors": {
+      "type": "array",
+      "$ref": "#/definitions/Author"
+    }
+  }
+}
