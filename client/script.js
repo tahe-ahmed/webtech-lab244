@@ -10,8 +10,7 @@ let postForm = document.getElementById('post-form')
 let restButton = document.getElementById('rest-button')
 let updateForm = document.getElementById('update-form')
 
-const getURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
-const postURL = 'https://wt.ops.labs.vu.nl/api23/598dea43'
+const getURL = 'http://localhost:3000/authors'
 
 let isOpened = false
 
@@ -89,7 +88,7 @@ function populateFormInputs(value, formName) {
 
 // Function to fetch data from the API
 async function getData(getURL) {
-  const response = await fetch(getURL)
+  const response = await fetch('http://localhost:3000/authors')
 
   let data = await response.json()
   init(data)
@@ -244,7 +243,7 @@ postForm.addEventListener('submit', async (event) => {
 
   try {
     // Send a POST request to the API endpoint
-    const response = await fetch('https://wt.ops.labs.vu.nl/api23/598dea43', {
+    const response = await fetch('http://localhost:3000/author', {
       method: 'POST',
       body: JSON.stringify(formDataObj),
       headers: {
@@ -273,10 +272,10 @@ restButton.addEventListener('click', async (event) => {
 
   try {
     // Send a GET request to reset the data
-    await fetch('https://wt.ops.labs.vu.nl/api23/598dea43/reset')
+    await fetch('http://localhost:3000/authors/reset')
 
     // Send a GET request to retrieve the data
-    const response = await fetch(getURL)
+    const response = await fetch('http://localhost:3000/authors')
 
     if (!response.ok) {
       throw new Error(response.statusText)
@@ -301,10 +300,10 @@ updateForm.addEventListener('submit', async (event) => {
     let formDataObj = Object.fromEntries(new FormData(event.target))
 
     // Create the update URL
-    let updateURL = `https://wt.ops.labs.vu.nl/api23/598dea43/item/${id}`
+    let updateURL = `http://localhost:3000/author/${id}`
 
     // Send a PUT request to update the data
-    const response = await fetch(updateURL, {
+    const response = await fetch(`http://localhost:3000/author/${id}`, {
       method: 'PUT',
       body: JSON.stringify(formDataObj),
       headers: {
@@ -316,11 +315,11 @@ updateForm.addEventListener('submit', async (event) => {
       throw new Error(response.statusText)
     }
 
-    getData(getURL)
+    // getData(getURL)
 
     closeUpdateModal()
 
-    openNotifiModal()
+    // openNotifiModal()
   } catch (error) {
     console.warn(error)
   }
