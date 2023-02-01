@@ -21,6 +21,23 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
+    "/authors/reset": {
+      "get": {
+        "tags": ["Reset DB"],
+        "summary": "Reset DB in the system",
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
     "/authors": {
       "get": {
         "tags": ["authors"],
@@ -110,7 +127,7 @@
             "description": "server error"
           },
           "404": {
-            "description": "Auth with this ID Not Found"
+            "description": "author with this ID Not Found"
           }
         }
       }
